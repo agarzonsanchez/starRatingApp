@@ -2,11 +2,12 @@
   background-color: #ffffff;
   margin: 25px;
   padding: 20px;
-  box-shadow: 15px 15px #5cbdb9;
+  box-shadow: 15px 15px #ebf6f5;
 }
 
 .title {
   margin-bottom: 35px;
+  color: #5cbdb9;
 }
 
 .start-style:hover {

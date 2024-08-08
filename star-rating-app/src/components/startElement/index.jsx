@@ -16,7 +16,6 @@ export default function StartElement({ starNum }) {
   }
 
   function handleOnClick(index) {
-    console.log(starClicked, index);
     if (onClickStar && starClicked === index) {
       setOnClickStar(false);
       setStarClicked(-1);
@@ -36,7 +35,8 @@ export default function StartElement({ starNum }) {
     <div>
       <div>
         {[...Array(starNum)].map((item, index) => (
-          <RiStarSmileLine className="start-style"
+          <RiStarSmileLine
+            className="start-style"
             key={index}
             color={index <= overStar ? "yellow" : "black"}
             onMouseOver={() => handleOverStar(index)}
