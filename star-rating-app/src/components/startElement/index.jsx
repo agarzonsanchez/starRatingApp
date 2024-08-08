@@ -16,22 +16,36 @@ export default function StartElement({ starNum }) {
   }
 
   function handleOnClick(index) {
-    setOnClickStar(true);
-    setStarClicked(index);
-    setOverStar(index);
+    console.log(starClicked, index);
+    if (onClickStar && starClicked === index) {
+      setOnClickStar(false);
+      setStarClicked(-1);
+      setOverStar(-1);
+    } else if (!onClickStar) {
+      setOnClickStar(true);
+      setStarClicked(index);
+      setOverStar(index);
+    } else {
+      setOnClickStar(true);
+      setStarClicked(index);
+      setOverStar(index);
+    }
   }
+
   return (
     <div>
-      {[...Array(starNum)].map((item, index) => (
-        <RiStarSmileLine
-          key={index}
-          color={index <= overStar ? "yellow" : "black"}
-          onMouseOver={() => handleOverStar(index)}
-          onMouseLeave={() => handleMouseLeave()}
-          onClick={() => handleOnClick(index)}
-          size="3em"
-        />
-      ))}
+      <div>
+        {[...Array(starNum)].map((item, index) => (
+          <RiStarSmileLine className="start-style"
+            key={index}
+            color={index <= overStar ? "yellow" : "black"}
+            onMouseOver={() => handleOverStar(index)}
+            onMouseLeave={() => handleMouseLeave()}
+            onClick={() => handleOnClick(index)}
+            size="3em"
+          />
+        ))}
+      </div>
     </div>
   );
 }
